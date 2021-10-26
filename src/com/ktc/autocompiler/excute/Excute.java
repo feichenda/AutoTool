@@ -157,6 +157,7 @@ public class Excute {
      */
     private void copyFile(File localFile, String codePath) throws IOException {
         log.d("", "正在复制 " + localFile.getName() + " 文件...");
+        log.d("", localFile.getName() + " 文件路径：" + codePath);
         File codeFile = new File(codePath);
         Files.copy(localFile.toPath(), codeFile.toPath(), StandardCopyOption.REPLACE_EXISTING);
     }
@@ -182,6 +183,7 @@ public class Excute {
     private void modifyFile(File localFile, String path, String tempPath) throws IOException {
         String[] strs = path.split("\\\\");
         log.d("", "正在修改 " + strs[strs.length - 1] + " 文件...");
+        log.d("", strs[strs.length - 1] + " 文件路径：" + path);
         boolean isHasOAD = false;
         BufferedReader bf = null;
         PrintWriter pw = null;
@@ -269,6 +271,7 @@ public class Excute {
      */
     private void modifyDLCFile(File file) throws IOException {
         log.d("", "正在修改 DLC.ini 文件...");
+        log.d("", "DLC.ini 文件路径：" + Config.DLC_PATH);
         File dlcFile = new File(Config.DLC_PATH + "DLC.ini");
         File tempFile = new File(Config.DLC_PATH + "DLC_TEMP.ini");
         BufferedReader source = null;

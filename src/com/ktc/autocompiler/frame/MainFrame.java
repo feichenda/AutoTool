@@ -51,10 +51,10 @@ public class MainFrame extends JFrame implements OnExcuteClickListener {
 
     private OnExcuteClickListener onExcuteClickListener;
 
-    private static final Font LEFT_PANLE_FONT_1 = new Font("宋体", Font.BOLD, 15);
-    private static final Font LEFT_PANLE_FONT_2 = new Font("宋体", Font.PLAIN, 15);
-    private static final Font RIGHT_PANLE_FONT = new Font("宋体", Font.PLAIN, 11);
-    private static final Font MENU_BAR_FONT = new Font("宋体", Font.PLAIN, 12);
+    private static final Font LEFT_PANLE_FONT_1 = new Font("宋体", Font.BOLD, 16);
+    private static final Font LEFT_PANLE_FONT_2 = new Font("宋体", Font.PLAIN, 16);
+    private static final Font RIGHT_PANLE_FONT = new Font("宋体", Font.PLAIN, 16);
+    private static final Font MENU_BAR_FONT = new Font("宋体", Font.PLAIN, 16);
 
     public MainFrame() {
         /*设置操作窗口大小 start*/
@@ -63,24 +63,25 @@ public class MainFrame extends JFrame implements OnExcuteClickListener {
         int width = screenSize.width;
         int height = screenSize.height;
         if (width == 1920) {
-            setSize(1000, 800);
+            setSize(1280, 800);
         } else if (width == 1366) {
-            setSize(1000, 800);
+            setSize(1280, 800);
         } else {
-            setSize(1000, 800);
+            setSize(1280, 800);
         }
-        setLocation(width / 4, height / 6);
+//        setLocation(width / 4, height / 6);
+        setLocationRelativeTo(null);
         setTitle("KTC 生产软件数据导入工具 	V1.0");
         /*设置操作窗口大小 end*/
         /*设置操作窗口布局 start*/
         this.setLayout(new FlowLayout(FlowLayout.LEFT));
         //JScrollPane jScrollPane = new JScrollPane();
         leftPanel.setLayout(new GridLayout(24, 2));
-        leftPanel.setPreferredSize(new Dimension(720, 700));
+        leftPanel.setPreferredSize(new Dimension(800, 700));
         //leftPanel.add(jScrollPane, BorderLayout.CENTER);
         mainPanel.add(leftPanel);
 
-        rightPanel.setPreferredSize(new Dimension(240, 640));
+        rightPanel.setPreferredSize(new Dimension(420, 700));
         rightPanel.setBackground(Color.WHITE);
         mainPanel.add(rightPanel, BorderLayout.NORTH);
         add(mainPanel);
@@ -126,11 +127,12 @@ public class MainFrame extends JFrame implements OnExcuteClickListener {
         helpMenu.setFont(MENU_BAR_FONT);
 
         JMenuItem restorePreDataMenu = new JMenuItem("恢复上次数据");
-        JMenuItem fileMenu2 = new JMenuItem("开发中...");
         JMenuItem clearDataMenu = new JMenuItem("恢复到初始状态");
         JMenuItem operationHelpMenu = new JMenuItem("操作说明");
+        restorePreDataMenu.setFont(MENU_BAR_FONT);
+        clearDataMenu.setFont(MENU_BAR_FONT);
+        operationHelpMenu.setFont(MENU_BAR_FONT);
         fileMenu.add(restorePreDataMenu);
-        fileMenu.add(fileMenu2);
         clearMenu.add(clearDataMenu);
         helpMenu.add(operationHelpMenu);
         mMenuBar.add(fileMenu);
@@ -164,16 +166,13 @@ public class MainFrame extends JFrame implements OnExcuteClickListener {
 					File mFile2 = new File(user);
 					Files.copy(mFile1.toPath(), mFile2.toPath(), StandardCopyOption.REPLACE_EXISTING);*/
 
-                    String url = "U://test//html//OperationHelp.html";
-                    URI uri = URI.create(url);
-                    Desktop desktop = Desktop.getDesktop();
-                    if (desktop.isSupported(Action.BROWSE)) {
-                        desktop.browse(uri);
-                    }
-                } catch (NullPointerException e) {
-                    // TODO: handle exception
-                    e.printStackTrace();
-                } catch (IOException e) {
+//                    String url = "U://test//html//OperationHelp.html";
+//                    URI uri = URI.create(url);
+//                    Desktop desktop = Desktop.getDesktop();
+//                    if (desktop.isSupported(Action.BROWSE)) {
+//                        desktop.browse(uri);
+//                    }
+                } catch (Exception e) {
                     // TODO: handle exception
                     e.printStackTrace();
                 }
@@ -211,7 +210,7 @@ public class MainFrame extends JFrame implements OnExcuteClickListener {
         JPanel mTVProjectPanel = new JPanel();
         mTVProjectPanel.setLayout(new FlowLayout(FlowLayout.CENTER));
         JLabel mTVProjectLable = new JLabel("请选择你的方案: ");
-        mTVProjectLable.setFont(new Font("宋体", Font.CENTER_BASELINE, 15));
+        mTVProjectLable.setFont(new Font("宋体", Font.CENTER_BASELINE, 16));
         mTVProjectComboBox = new JComboBox<String>(Config.TV_PROJECTS);
         mTVProjectComboBox.setSelectedIndex(-1);
         mTVProjectComboBox.setFont(LEFT_PANLE_FONT_1);
@@ -226,7 +225,7 @@ public class MainFrame extends JFrame implements OnExcuteClickListener {
         JPanel mBoardTypePanel = new JPanel();
         mBoardTypePanel.setLayout(new GridLayout(1, 2));
         JLabel mBoardTypeLable = new JLabel("请选择你的主板: ");
-        mBoardTypeLable.setFont(new Font("宋体", Font.CENTER_BASELINE, 15));
+        mBoardTypeLable.setFont(new Font("宋体", Font.CENTER_BASELINE, 16));
         mBoardTypeComboBox = new JComboBox<String>(Config.TV_BOARDS);
         mBoardTypeComboBox.setSelectedIndex(-1);
         mBoardTypeComboBox.setFont(LEFT_PANLE_FONT_1);
@@ -596,7 +595,7 @@ public class MainFrame extends JFrame implements OnExcuteClickListener {
         JButton mFilePathButton = new JButton("你需要复制的文件路径：");
         //mFilePathButton.setHorizontalAlignment(AbstractButton.LEFT);
         mFilePathButton.setFont(LEFT_PANLE_FONT_1);
-        mFilePathLable = new JLabel("");
+        mFilePathLable = new JLabel("你的PQ路径");
         mFilePathLable.setFont(LEFT_PANLE_FONT_2);
         mFilePathPanel.add(mFilePathButton);
         mFilePathPanel.add(mFilePathLable);
@@ -626,7 +625,7 @@ public class MainFrame extends JFrame implements OnExcuteClickListener {
         JButton mCodePathButton = new JButton("你需要选择的Supernova路径：");
         //mFilePathButton.setHorizontalAlignment(AbstractButton.LEFT);
         mCodePathButton.setFont(LEFT_PANLE_FONT_1);
-        mCodePathLable = new JLabel("");
+        mCodePathLable = new JLabel("你的代码路径");
         mCodePathLable.setFont(LEFT_PANLE_FONT_2);
         mCodePathPanel.add(mCodePathButton);
         mCodePathPanel.add(mCodePathLable);
@@ -1029,6 +1028,7 @@ public class MainFrame extends JFrame implements OnExcuteClickListener {
         public void itemStateChanged(ItemEvent e) {
             // TODO Auto-generated method stub
             if (e.getStateChange() == ItemEvent.SELECTED) {
+                LogUtil.getInstance(logText).d("","你选择了"+mTVProjectComboBox.getItemAt(mTVProjectComboBox.getSelectedIndex())+"方案.");
                 countryCheck.setSelected(false);
                 langCheck.setSelected(false);
                 dvbCountryCheck.setSelected(false);
