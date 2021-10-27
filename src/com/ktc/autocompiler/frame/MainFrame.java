@@ -720,6 +720,9 @@ public class MainFrame extends JFrame implements OnExcuteClickListener {
         Config.VGA_CHECK = vgaCheck.isSelected();
         Config.HOTEL_CHECK = hotelCheck.isSelected();
         System.out.println("版型：" + mBoardTypeComboBox.getSelectedIndex());
+        LogUtil log = LogUtil.getInstance(logText);
+        log.d("","版型：" + mBoardTypeComboBox.getItemAt(mBoardTypeComboBox.getSelectedIndex()));
+        Config.mBoardType = mBoardTypeComboBox.getSelectedIndex();
         if (mBoardTypeComboBox.getSelectedIndex() == 0) {
             Config.CUSTOMER_INI_PATH = Config.CUSTOMER_INI_M2C1_PATH;
             Config.CUSTOMER_INI_TEMP = Config.CUSTOMER_INI_M2C1_TEMP;

@@ -31,7 +31,8 @@ public class Config {
     public static String mFilePath = "";                            //复制的文件路径
     public static String mCodePath = "";                            //代码路径
     public static boolean isNeedChangeOADPanel = false;                //是否需要更改屏参列表
-
+    public static int mBoardType = -1;
+    
     /*界面显示的内容*/
     public static final String SERVER_IP = "你的服务器IP: ";
     public static final String SERVER_IP_VAL = "192.168.47.93";
@@ -453,6 +454,16 @@ public class Config {
                 //M6C1修改屏参ini文件
                 CUSTOMER_INI_M6C1_TEMP = mCodePath + "\\vendor\\mediatek\\proprietary_tv\\apollo\\linux_core\\misdk\\mi\\mi\\platform\\m5621\\linux\\board_cfg\\BD_MST151B_10ABQHAT_18151_M6C1\\model\\Customer_1_temp.ini";
                 CUSTOMER_INI_M6C1_PATH = mCodePath + "\\vendor\\mediatek\\proprietary_tv\\apollo\\linux_core\\misdk\\mi\\mi\\platform\\m5621\\linux\\board_cfg\\BD_MST151B_10ABQHAT_18151_M6C1\\model\\Customer_1.ini";
+                if (mBoardType == 0) {
+                    Config.CUSTOMER_INI_PATH = Config.CUSTOMER_INI_M2C1_PATH;
+                    Config.CUSTOMER_INI_TEMP = Config.CUSTOMER_INI_M2C1_TEMP;
+                } else if (mBoardType == 1) {
+                    Config.CUSTOMER_INI_PATH = Config.CUSTOMER_INI_M3C1_PATH;
+                    Config.CUSTOMER_INI_TEMP = Config.CUSTOMER_INI_M3C1_TEMP;
+                } else if (mBoardType == 2) {
+                    Config.CUSTOMER_INI_PATH = Config.CUSTOMER_INI_M6C1_PATH;
+                    Config.CUSTOMER_INI_TEMP = Config.CUSTOMER_INI_M6C1_TEMP;
+                }
                 DEVICE_PATH = Tools.parseString(mCodePath, "\\\\", "/") + "device/mediatek/" + mCustomer;
                 ACFG_DVB_PATH = Tools.parseString(mCodePath, "\\\\", "/") + "vendor/mediatek/proprietary_tv/apollo/custom/dev/app_util/config/";
                 HELPACTIVITY_PATH = Tools.parseString(mCodePath, "\\\\", "/") + "device/mediatek/" + mCustomer + "/common/apps/sys_app/need_signed/32";

@@ -143,13 +143,17 @@ public class Excute {
      */
     private ArrayList<File> getAllFileList(String path) {
         File file = new File(path);
-        File[] files = file.listFiles();
-        ArrayList<File> fileArrayList = new ArrayList<>();
-        for (int i = 0; i < files.length; i++) {
-            fileArrayList.add(files[i]);
-            System.out.println("file name : " + files[i].getName());
+        if(file.exists()) {
+	        File[] files = file.listFiles();
+	        ArrayList<File> fileArrayList = new ArrayList<>();
+	        for (int i = 0; i < files.length; i++) {
+	            fileArrayList.add(files[i]);
+	            System.out.println("file name : " + files[i].getName());
+	        }
+	        return fileArrayList;
+        }else{
+        	return new ArrayList<>();
         }
-        return fileArrayList;
     }
 
     /*
@@ -254,8 +258,10 @@ public class Excute {
             e.printStackTrace();
         } finally {
             try {
-                bf.close();
-                pw.close();
+            	if(bf != null)
+            		bf.close();
+            	if(pw != null)
+            		pw.close();
                 if (customer.exists()) {
                     customer.delete();
                 }
