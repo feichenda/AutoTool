@@ -409,17 +409,22 @@ public class Config {
                 COLOR_MATRIX_PATH = mCodePath + "\\projects\\board\\INI\\ColorMatrix\\ColorMatrix.ini";
                 DLC_PATH = mCodePath + "\\projects\\board\\INI\\DLC\\";
                 LOGO_PATH = mCodePath + "\\vendor\\mediatek\\proprietary_tv\\apollo\\linux_core\\misdk\\mi\\mi\\platform\\common\\ini\\main\\misc\\boot0.jpg";
-                PQ_PATH2 = mCodePath + "\\vendor\\mediatek\\proprietary_tv\\apollo\\mtk_obj\\mediatek\\m7332_ktc\\rel\\misdk\\mi\\preinstall\\m7332\\linux\\config\\pq\\Main.bin";
-                PQ_PATH3 = mCodePath + "\\vendor\\mediatek\\proprietary_tv\\apollo\\mtk_obj\\mediatek\\m7332_ktc\\rel\\misdk\\mi\\preinstall\\m7332\\linux\\config\\pq\\Main_Color.bin";
-                PQ_PATH4 = mCodePath + "\\vendor\\mediatek\\proprietary_tv\\apollo\\mtk_obj\\mediatek\\m7332_ktc\\rel\\misdk\\mi\\preinstall\\m7332\\linux\\config\\pq\\Main_Color_Text.bin";
-                PQ_PATH5 = mCodePath + "\\vendor\\mediatek\\proprietary_tv\\apollo\\mtk_obj\\mediatek\\m7332_ktc\\rel\\misdk\\mi\\preinstall\\m7332\\linux\\config\\pq\\Main_Text.bin";
-                PQ_PATH6 = mCodePath + "\\vendor\\mediatek\\proprietary_tv\\apollo\\mtk_obj\\mediatek\\m7332_ktc\\rel\\misdk\\mi\\preinstall\\m7332\\linux\\config\\pq\\Main_TMO.bin";
-                PQ_PATH7 = mCodePath + "\\vendor\\mediatek\\proprietary_tv\\apollo\\mtk_obj\\mediatek\\m7332_ktc\\rel\\misdk\\mi\\preinstall\\m7332\\linux\\config\\pq\\Main_TMO_Text.bin";
+                PQ_PATH1 = mCodePath + "\\vendor\\mediatek\\proprietary_tv\\apollo\\mtk_obj\\mediatek\\" + mCustomer + "\\rel\\misdk\\mi\\preinstall\\m7332\\linux\\config\\pq\\HSY.bin";//pq 这个路径需要修改
+                PQ_PATH2 = mCodePath + "\\vendor\\mediatek\\proprietary_tv\\apollo\\mtk_obj\\mediatek\\" + mCustomer + "\\rel\\misdk\\mi\\preinstall\\m7332\\linux\\config\\pq\\Main.bin";
+                PQ_PATH3 = mCodePath + "\\vendor\\mediatek\\proprietary_tv\\apollo\\mtk_obj\\mediatek\\" + mCustomer + "\\rel\\misdk\\mi\\preinstall\\m7332\\linux\\config\\pq\\Main_Ex.bin";
+                PQ_PATH4 = mCodePath + "\\vendor\\mediatek\\proprietary_tv\\apollo\\mtk_obj\\mediatek\\" + mCustomer + "\\rel\\misdk\\mi\\preinstall\\m7332\\linux\\config\\pq\\Main_Ex_Text.bin";
+                PQ_PATH5 = mCodePath + "\\vendor\\mediatek\\proprietary_tv\\apollo\\mtk_obj\\mediatek\\" + mCustomer + "\\rel\\misdk\\mi\\preinstall\\m7332\\linux\\config\\pq\\Main_Text.bin";
+                PQ_PATH6 = mCodePath + "\\vendor\\mediatek\\proprietary_tv\\apollo\\mtk_obj\\mediatek\\" + mCustomer + "\\rel\\misdk\\mi\\preinstall\\m7332\\linux\\config\\pq\\Main_TMO.bin";
+                PQ_PATH7 = mCodePath + "\\vendor\\mediatek\\proprietary_tv\\apollo\\mtk_obj\\mediatek\\" + mCustomer + "\\rel\\misdk\\mi\\preinstall\\m7332\\linux\\config\\pq\\Main_TMO_Text.bin";
                 //修改屏参ini文件
                 CUSTOMER_INI_PATH = mCodePath
                         + "\\vendor\\mediatek\\proprietary_tv\\apollo\\linux_core\\misdk\\mi\\mi\\platform\\m7332\\linux\\board_cfg\\BD_MT165B_10AT_19055_4K\\model\\Customer_1.ini";
                 CUSTOMER_INI_TEMP = mCodePath
                         + "\\vendor\\mediatek\\proprietary_tv\\apollo\\linux_core\\misdk\\mi\\mi\\platform\\m7332\\linux\\board_cfg\\BD_MT165B_10AT_19055_4K\\model\\Customer_1_temp.ini";
+                DEVICE_PATH = Tools.parseString(mCodePath, "\\\\", "/") + "device/mediatek/" + mCustomer;
+                ACFG_DVB_PATH = Tools.parseString(mCodePath, "\\\\", "/") + "vendor/mediatek/proprietary_tv/apollo/custom/dev/app_util/config/";
+                HELPACTIVITY_PATH = Tools.parseString(mCodePath, "\\\\", "/") + "device/mediatek/" + mCustomer + "/common/apps/sys_app/need_signed/32";
+                Config_PATH = Tools.parseString(mCodePath, "\\\\", "/") + "vendor/mediatek/proprietary_tv/apollo/sys_build/mediatek/common/m7332_eu/data/tvconfig";
                 break;
 
             case TV6681:

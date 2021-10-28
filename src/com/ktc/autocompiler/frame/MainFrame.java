@@ -721,7 +721,8 @@ public class MainFrame extends JFrame implements OnExcuteClickListener {
         Config.HOTEL_CHECK = hotelCheck.isSelected();
         System.out.println("版型：" + mBoardTypeComboBox.getSelectedIndex());
         LogUtil log = LogUtil.getInstance(logText);
-        log.d("","版型：" + mBoardTypeComboBox.getItemAt(mBoardTypeComboBox.getSelectedIndex()));
+        if(mTVProjectComboBox.getItemAt(Config.mTVProject).equals("6681"))
+        	log.d("","版型：" + mBoardTypeComboBox.getItemAt(mBoardTypeComboBox.getSelectedIndex()));
         Config.mBoardType = mBoardTypeComboBox.getSelectedIndex();
         if (mBoardTypeComboBox.getSelectedIndex() == 0) {
             Config.CUSTOMER_INI_PATH = Config.CUSTOMER_INI_M2C1_PATH;
@@ -1073,7 +1074,18 @@ public class MainFrame extends JFrame implements OnExcuteClickListener {
                 } else {
                     backLightCheck.setEnabled(true);
                 }
-                if (!e.getItem().equals("6681")) {
+                initCheckBox();
+                if(e.getItem().equals("6681")) {
+                	btCheck.setEnabled(true);
+                    helpActCheck.setEnabled(true);
+                    dvbCCheck.setEnabled(true);
+                    dvbSCheck.setEnabled(true);
+                    vgaCheck.setEnabled(true);
+                    hotelCheck.setEnabled(true);
+                    mBoardTypeComboBox.setEnabled(true);
+                } else if(e.getItem().equals("9632")) {
+                	helpActCheck.setEnabled(true);
+                } else {
                     btCheck.setSelected(false);
                     helpActCheck.setSelected(false);
                     dvbCCheck.setSelected(false);
@@ -1087,14 +1099,10 @@ public class MainFrame extends JFrame implements OnExcuteClickListener {
                     vgaCheck.setEnabled(false);
                     hotelCheck.setEnabled(false);
                     mBoardTypeComboBox.setEnabled(false);
-                } else {
-                    btCheck.setEnabled(true);
-                    helpActCheck.setEnabled(true);
-                    dvbCCheck.setEnabled(true);
-                    dvbSCheck.setEnabled(true);
-                    vgaCheck.setEnabled(true);
-                    hotelCheck.setEnabled(true);
-                    mBoardTypeComboBox.setEnabled(true);
+                    mPhilipsAQVersionText.setEditable(true);
+                    mPhilipsPQVersionText.setEditable(true);
+                    mPhilipsSWVersionText.setEditable(true);
+                    mPhilipsOCText.setEditable(true);
                 }
                 leftPanel.validate();
                 leftPanel.repaint();
@@ -1102,4 +1110,24 @@ public class MainFrame extends JFrame implements OnExcuteClickListener {
 
         }
     }
+    
+    private void initCheckBox() {
+    	btCheck.setSelected(false);
+        helpActCheck.setSelected(false);
+        dvbCCheck.setSelected(false);
+        dvbSCheck.setSelected(false);
+        vgaCheck.setSelected(false);
+        hotelCheck.setSelected(false);
+        btCheck.setEnabled(false);
+        helpActCheck.setEnabled(false);
+        dvbCCheck.setEnabled(false);
+        dvbSCheck.setEnabled(false);
+        vgaCheck.setEnabled(false);
+        hotelCheck.setEnabled(false);
+        mBoardTypeComboBox.setEnabled(false);
+        mPhilipsAQVersionText.setEditable(false);
+        mPhilipsPQVersionText.setEditable(false);
+        mPhilipsSWVersionText.setEditable(false);
+        mPhilipsOCText.setEditable(false);
+	}
 }

@@ -73,6 +73,10 @@ public class Excute {
                 copyFile(file, Config.PQ_PATH3);
             } else if (file.getName().equals("Main_Color_Text.bin")) {
                 copyFile(file, Config.PQ_PATH4);
+            } else if (file.getName().equals("Main_Ex.bin")) {
+                copyFile(file, Config.PQ_PATH3);
+            } else if (file.getName().equals("Main_Ex_Text.bin")) {
+                copyFile(file, Config.PQ_PATH4);
             } else if (file.getName().equals("Main_Text.bin")) {
                 copyFile(file, Config.PQ_PATH5);
             } else if (file.getName().equals("Main_TMO.bin")) {
