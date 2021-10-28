@@ -488,11 +488,20 @@ public class Excute {
             String dvbCountryString = Config.mDvbCountry.trim();
             //log.d("","isAuthenticated: " + isAuthenticated + CMD);
             if (Config.DVBCOUNTRY_CHECK == true) {
-                log.d("", "正在修改acfg_dvb.c...");
-                //sed -i '186,//s/s3166_app_cfg_count_.*/s3166_app_cfg_count_cfg/g' acfg_dvb.c
-                cmdDvbCountry = "sed -i '186,//s/s3166_app_cfg_count_.*/s3166_app_cfg_count_" + dvbCountryString + "/g' " + "acfg_dvb.c";
-                //	System.out.println(cmdDvbCountry);
-                ExcuteLinuxCmd.excuteCmd(isAuthenticated, goAcfgDvbeSrc + "\n" + cmdDvbCountry, log, "默认搜台国家");
+                if (Config.mTVProject == 19){
+                    log.d("", "正在修改acfg_dvb.c...");
+                    //sed -i '190,//s/s3166_app_cfg_count_.*/s3166_app_cfg_count_cfg/g' acfg_dvb.c
+                    cmdDvbCountry = "sed -i '190,//s/s3166_app_cfg_count_.*/s3166_app_cfg_count_" + dvbCountryString + "/g' " + "acfg_dvb.c";
+                    // System.out.println(cmdDvbCountry);
+                    ExcuteLinuxCmd.excuteCmd(isAuthenticated, goAcfgDvbeSrc + "\n" + cmdDvbCountry, log, "默认搜台国家");
+                }else if (Config.mTVProject == 20) {
+                    log.d("", "正在修改acfg_dvb.c...");
+                    //sed -i '186,//s/s3166_app_cfg_count_.*/s3166_app_cfg_count_cfg/g' acfg_dvb.c
+                    cmdDvbCountry = "sed -i '186,//s/s3166_app_cfg_count_.*/s3166_app_cfg_count_" + dvbCountryString + "/g' " + "acfg_dvb.c";
+                    // System.out.println(cmdDvbCountry);
+                    ExcuteLinuxCmd.excuteCmd(isAuthenticated, goAcfgDvbeSrc + "\n" + cmdDvbCountry, log, "默认搜台国家");
+                }
+
             } else {
                 log.d("", "未勾选，不修改acfg_dvb.c!");
             }
